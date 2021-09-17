@@ -5,7 +5,7 @@ const app  =  express()
 app.use((req, res) => {
     console.log("Hello this is Varun Sidhwani")
     // console.dir(req)
-    res.send("Hello Varun")
+    res.send({name : 'Varun'})
 })
 
 app.listen(3000, () => {
