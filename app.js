@@ -2,9 +2,9 @@ const express = require("express");
 const app  =  express();
 const path = require('path');
 // console.dir(app)
-
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // app.use((req, res) => {
 //     console.log("Hello this is Varun Sidhwani")
@@ -16,7 +16,16 @@ app.get('/r/:subreddit', (req,res) => {
     const { subreddit } = req.params
     const {name, age} = req.query
     // res.send(`<h1>This is a ${subreddit} subreddit </h1> and username is ${name} and age is ${age}`)
-    res.render('home.ejs')
+    
+    // res.render('home.ejs')
+
+    let num = Math.random();
+    // res.render('home.ejs', {rand : num})
+    // res.render('home.ejs', {num : num})
+    res.render('home.ejs', { num })
+
+
+
 })
 
 app.listen(3000, () => {
